@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #10161c;
+    color: #e7ecf0;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 30px;
+}
+
+.plans {
+    display: flex;
+
+    /* === MEANINGFUL CHANGE 1 ===
+    The original lab usually keeps plans in a strict row with 
+    stretch-aligned, equal-height cards. Here align-items is changed
+    to flex-end so the cards sit on a shared baseline rather than all 
+    stretching to match the tallest one, and the layout wraps on
+    narrow screens so it behaves better on smaller devices.  */
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 40px 20px;
+}
+
+.plan {
+  background-color: #161e27;
+  border: 1px solid #263241;
+  border-radius: 10px;
+  padding: 30px 24px;
+  width: 260px;
+display: flex;
+align-items: center;
+flex-direction: column;
+
+
+/* === MEANINGFUL CHANGE 2 ===
+   flex-grow is set so each plan card grows to share extra space 
+   evenly instead of staying a fixed width, and the featured plan
+   uses a larer flex-grow value so it visually dominates the row. */
+   flex: 1 1 260px;
+}
+
+.plan.featured { 
+  border: 2px solid #7fe7c4;
+  flex-grow: 1.3;
+  transform: scale(1.05);
+ }
+
+.plan h2 { 
+  color: #7fe7c4;
+margin-bottom: 10px;
+}
+
+.price {
+     font-size: 2rem;
+    font-weight: bold; 
+margin-bottom: 20px;
+}
+
+.price-span { 
+    font-size: 1 rem;
+    font-weight: normal;
+    color: #93a4b0;
+}
+
+.plan ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.plan li {
+    padding: 8px 0;
+    border-bottom: 1px solid #263241;
+}
+
+.plan button {
+    background-color: #7fe7c4;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.plan button:hover{
+    background-color: #d9b26f;
+}

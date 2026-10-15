@@ -1,0 +1,80 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+    background-color: #10161c;
+    color: #e7ecf0;
+    text-align: center;
+}
+
+.scene {
+    position: relative;
+    width: 300px;
+    height: 340px;
+    margin: 60px auto;
+}
+
+.wheel {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border: 10px solid #7fe7c4;
+    border-radius: 50%;
+
+    /* === Base rotation animation ===
+    The wheel itself spins a full circle, continuously, forever. */
+    animation: spin 8s linear infinite;
+}
+
+    /* === MEANINGFUL CHANGE 1
+    The default workshop version usually spins forever in one direction
+    at a constant linear speed. Here the timing function is changed to
+    ease-in-out and "alternate" is added, so the wheel spins one way,
+    slows down, then reverses direction - like a real fairground wheel
+    that's being tested rather than running non-stop in one direction. */
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+.cabin {
+  position:absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #ffd93d;
+  border-radius: 6px;
+  top: 50%;
+  left: 50%;
+  margin: -15px;
+
+  /* counter-rotate so cabins stay upright while the wheel spins */
+  animation: counter-spin 8s linear infinite;
+}
+
+@keyframes counter-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+#cabin-1 { transform: translate(0, -140px); }
+#cabin-2 { transform: translate(121px, -70px); }
+#cabin-3 { transform: translate(121px, 70px); }
+#cabin-4 { transform: translate(0, 140px); }
+#cabin-5 { transform: translate(-121px, 70px); }
+#cabin-6 { transform: translate(-121px, -70px); }
+
+.stand {
+    width: 10px;
+    height: 40px;
+    background-color: #93a4b0;
+    margin: 0 auto;
+}
+
+
+  /* === MEANINGFUL CHANGE 2 ===
+   Overrides the wheel's base animation with a more delibrate timing 
+   function and alternating direction, demonstrating control over 
+   animation-timing-function and animation-direction beyond the
+   workshop default. */
+  .wheel {
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+  }
